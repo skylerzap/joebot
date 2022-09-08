@@ -85,4 +85,4 @@ async def say(ctx, *args):
     arguments = ' '.join(args)
     await ctx.send(arguments)
 
-bot.run('MTAxNTc0OTQ1MDU0NDczMDIwNA.G9PaaA.7SC7eFq2_69plNRhocqe4vRCD9LNXSK8lbqYZo')
+bot.run('token')
