@@ -6,6 +6,7 @@ import sys
 import psutil
 import logging
 import time
+import string
 import git
 from git import Repo
 
@@ -76,7 +77,7 @@ async def takehelp(ctx, member : discord.Member):
 
 @bot.command(help="Displays information about the bot.", )
 async def about(ctx):
-    await ctx.send('Joe Bot Version v6.1')
+    await ctx.send('Joe Bot Version v6.2')
     await ctx.send('--------------------------------')
     await ctx.send('This is a JOE Bot, all hail Joe!')
     await ctx.send('Contributors: JoshuaMV')
@@ -93,7 +94,13 @@ async def furryfolder(ctx):
     furrytable = ["/FURRY/",furryfile]
     furrysend = ''.join(furrytable)
     await ctx.send(file=discord.File(furrysend))
-
+	
+@bot.command(help="Sends a random LightShot image. (Use at your own risk!)")
+async def lightshot(ctx):
+    lslink = ''.join(random.choices(string.ascii_lowercase + string.digits, k=6))
+    lstable = ["https://prnt.sc/", lslink]
+    lssend = ''.join(lstable)
+    await ctx.send(lssend)
 
 @bot.command(help="Make the Joe Bot say what you want it to!")
 async def say(ctx, *args):
