@@ -28,7 +28,7 @@ async def ban(ctx, member : discord.Member):
         await ctx.send(x)
 
 @bot.command(help="Kills a member.")
-async def ban(ctx, member : discord.Member):
+async def kill(ctx, member : discord.Member):
     if member.name == 'Joe Bot':
         await ctx.send('no')
     else:
