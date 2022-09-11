@@ -9,6 +9,10 @@ bot = commands.Bot(command_prefix='.', intents=intents)
 @bot.command(help='Displays Rule 11')
 async def r11(ctx):
     await ctx.send('Please refrain from asking for or giving assistance with installing, using, or obtaining pirated software.')
+    
+@bot.command(help='Displays Rule 11')
+async def rule11(ctx):
+    await ctx.send('Please refrain from asking for or giving assistance with installing, using, or obtaining pirated software.')
 
 @bot.command(help="dispways wuwe 11")
 async def wuwe11(ctx):
@@ -24,6 +28,15 @@ async def ban(ctx, member : discord.Member):
         await ctx.send('no')
     else:
         thing = [':hammer: ', member.mention, ' has been banned.']
+        x = ''.join(thing)
+        await ctx.send(x)
+
+@bot.command(help="Kills a member.")
+async def kill(ctx, member : discord.Member):
+    if member.name == 'Joe Bot':
+        await ctx.send('no')
+    else:
+        thing = [':knife: ', member.mention, ' has been killed.']
         x = ''.join(thing)
         await ctx.send(x)
 
@@ -44,45 +57,49 @@ async def takehelp(ctx, member : discord.Member):
 
 @bot.command(help="Displays information about the bot.", )
 async def about(ctx):
-    await ctx.send('Joe Bot Version v5.5')
+    await ctx.send('Joe Bot Version v5.6')
     await ctx.send('--------------------------------')
     await ctx.send('This is a JOE Bot, all hail Joe!')
 
 @bot.command(help="idk", pass_context=True)
 async def furry(ctx):
     area = ctx.message.channel
-    await ctx.send(file=discord.File(r'C:\Users\Evanz\real.png'))
+    await ctx.send(file=discord.File(r'/Users/Evanz/real.png'))
 
 @bot.command(help="sends a random image from evans furry folder")
 async def evansfurryfolder(ctx):
     x=random.randint(1, 10)
     if x==1:
-        await ctx.send(file=discord.File(r'C:\FURRY\hahaevanlol.png'))
+        await ctx.send(file=discord.File(r'/FURRY/hahaevanlol.png'))
     elif x==2:
-        await ctx.send(file=discord.File(r'C:\FURRY\furry-protest-mcdonalds.png'))
+        await ctx.send(file=discord.File(r'/FURRY/furry-protest-mcdonalds.png'))
     elif x==3:
-        await ctx.send(file=discord.File(r'C:\FURRY\GrandDAD.jpg'))
+        await ctx.send(file=discord.File(r'/FURRY/GrandDAD.jpg'))
     elif x==4:
-        await ctx.send(file=discord.File(r'C:\FURRY\thismotherFUCKER.jpg'))
+        await ctx.send(file=discord.File(r'/FURRY/thismotherFUCKER.jpg'))
     elif x==3:
-        await ctx.send(file=discord.File(r'C:\FURRY\classicuberefrence.jpg'))
+        await ctx.send(file=discord.File(r'/FURRY/classicuberefrence.jpg'))
     elif x==4:
-        await ctx.send(file=discord.File(r'C:\FURRY\purodrawing.jpg'))
+        await ctx.send(file=discord.File(r'/FURRY/purodrawing.jpg'))
     elif x==5:
-        await ctx.send(file=discord.File(r'C:\FURRY\birdlee.png'))
+        await ctx.send(file=discord.File(r'/FURRY/birdlee.png'))
     elif x==6:
-        await ctx.send(file=discord.File(r'C:\FURRY\FURRY.gif'))
+        await ctx.send(file=discord.File(r'/FURRY/FURRY.gif'))
     elif x==7:
-        await ctx.send(file=discord.File(r'C:\FURRY\realhewwospotted.png'))
+        await ctx.send(file=discord.File(r'/FURRY/realhewwospotted.png'))
     elif x==8:
-        await ctx.send(file=discord.File(r'C:\FURRY\research.png'))
+        await ctx.send(file=discord.File(r'/FURRY/research.png'))
     elif x==9:
-        await ctx.send(file=discord.File(r'C:\FURRY\ohdeargod.png'))
+        await ctx.send(file=discord.File(r'/FURRY/ohdeargod.png'))
 
 
 @bot.command(help="Make the Joe Bot say what you want it to!")
 async def say(ctx, *args):
     arguments = ' '.join(args)
     await ctx.send(arguments)
+
+@bot.command(help="Birb image.")
+async def birb(ctx):
+    await ctx.send('https://files.catbox.moe/s1g67r.png')
 
 bot.run('token')
