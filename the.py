@@ -131,7 +131,7 @@ async def update(ctx):
 	await ctx.send('Updating software, please type .update after a few seconds.')
 	
 @bot.command(help='Restart the bot after updating')
-async def restart(ctx)
+async def restart(ctx):
 	ctx.send('Restarting...')
 	arestart()
 
