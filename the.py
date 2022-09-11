@@ -122,14 +122,17 @@ async def say(ctx, *args):
 async def birb(ctx):
     await ctx.send('https://files.catbox.moe/s1g67r.png')
 
-@bot.command(help='Testing command for restarting the bot.')
+@bot.command(help='Update the bot via GIT.')
 async def update(ctx):
 	os.system("rm -rf /root/test/")
 	os.system("mkdir /root/test/")
 	Repo.clone_from("https://www.github.com/Evanzap/joebot.git", "/root/test/")
 	os.system("mv /root/test/the.py /root/the.py")
-	await ctx.send('Updating software... may take up to 3-4 seconds')
-	time.sleep(1)
+	await ctx.send('Updating software, please type .update after a few seconds.')
+	
+@bot.command(help='Restart the bot after updating')
+async def restart(ctx)
+	ctx.send('Restarting...')
 	arestart()
 
 bot.run(str(token))
