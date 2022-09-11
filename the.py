@@ -123,6 +123,7 @@ async def birb(ctx):
 @bot.command(help='Testing command for restarting the bot.')
 async def update(ctx):
 	os.system("rm -rf /root/test/")
+	os.system("mkdir /root/test/")
 	Repo.clone_from("https://www.github.com/Evanzap/joebot.git", "/root/test/")
 	os.system("mv root/test/the.py root/the.py")
 	await arestart()
