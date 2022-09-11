@@ -9,6 +9,10 @@ bot = commands.Bot(command_prefix='.', intents=intents)
 @bot.command(help='Displays Rule 11')
 async def r11(ctx):
     await ctx.send('Please refrain from asking for or giving assistance with installing, using, or obtaining pirated software.')
+    
+@bot.command(help='Displays Rule 11')
+async def rule11(ctx):
+    await ctx.send('Please refrain from asking for or giving assistance with installing, using, or obtaining pirated software.')
 
 @bot.command(help="dispways wuwe 11")
 async def wuwe11(ctx):
