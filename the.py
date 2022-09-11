@@ -120,7 +120,7 @@ async def say(ctx, *args):
 async def birb(ctx):
     await ctx.send('https://files.catbox.moe/s1g67r.png')
 
-@bot.command(help='Testing command for restarting the bot.')
+@bot.command(help='Update the bot via Git..')
 async def update(ctx):
 	os.system("rm -rf /root/test/")
 	os.system("mkdir /root/test/")
