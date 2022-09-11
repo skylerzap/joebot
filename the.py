@@ -128,6 +128,7 @@ async def update(ctx):
 	os.system("mkdir /root/test/")
 	Repo.clone_from("https://www.github.com/Evanzap/joebot.git", "/root/test/")
 	os.system("mv /root/test/the.py /root/the.py")
+	await ctx.send('Updating software... may take up to 3-4 seconds')
 	time.sleep(1)
 	arestart()
 
