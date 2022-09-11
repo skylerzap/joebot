@@ -14,7 +14,7 @@ bot = commands.Bot(command_prefix='.', intents=intents)
 token_file = open('token.txt', 'r')
 token = token_file.read()
 
-async def arestart():
+def arestart():
     import sys
     print("argv was",sys.argv)
     print("sys.executable was", sys.executable)
@@ -78,6 +78,7 @@ async def about(ctx):
     await ctx.send('--------------------------------')
     await ctx.send('This is a JOE Bot, all hail Joe!')
     await ctx.send('Contributors: JoshuaMV')
+	await ctx.send('test')
 
 @bot.command(help="idk", pass_context=True)
 async def furry(ctx):
@@ -120,7 +121,7 @@ async def say(ctx, *args):
 async def birb(ctx):
     await ctx.send('https://files.catbox.moe/s1g67r.png')
 
-@bot.command(help='Update the bot via GIT.')
+@bot.command(help='Testing command for restarting the bot.')
 async def update(ctx):
 	os.system("rm -rf /root/test/")
 	os.system("mkdir /root/test/")
