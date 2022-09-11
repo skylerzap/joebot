@@ -128,7 +128,7 @@ async def update(ctx):
 	os.system("mkdir /root/test/")
 	Repo.clone_from("https://www.github.com/Evanzap/joebot.git", "/root/test/")
 	os.system("mv /root/test/the.py /root/the.py")
-	await ctx.send('Updating software, please type .update after a few seconds.')
+	await ctx.send('Updating software, please type .restart after a few seconds.')
 	
 @bot.command(help='Restart the bot after updating')
 async def restart(ctx):
