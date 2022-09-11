@@ -21,8 +21,9 @@ def arestart():
     print("sys.executable was", sys.executable)
     print("restart now")
 
-    import os
-    os.execv(sys.executable, ['python'] + sys.argv)
+def restartApp():
+    python = sys.executable
+    os.execl(python, python, *sys.argv)
 
 @bot.command(help='Displays Rule 11')
 async def r11(ctx):
@@ -69,9 +70,6 @@ async def superban(ctx, member : discord.Member):
 
 @bot.command(help="Takes away help from a member.")
 async def takehelp(ctx, member : discord.Member):
-    if member.name == 'Joe Bot':
-        await ctx.send('no')
-    else:
         thing = [member.mention, ' can no longer access the help channels.']
         x = ''.join(thing)
         await ctx.send(x)
@@ -131,11 +129,11 @@ async def update(ctx):
 	os.system("mkdir /root/test/")
 	Repo.clone_from("https://www.github.com/Evanzap/joebot.git", "/root/test/")
 	os.system("mv /root/test/the.py /root/the.py")
-	await ctx.send('Updating software, please type .restart after a few seconds.')
+	await ctx.send('Updating software, please type .update after a few seconds.')
 	
 @bot.command(help='Restart the bot after updating')
 async def restart(ctx):
 	ctx.send('Restarting...')
-	arestart()
+	restartApp()
 
 bot.run(str(token))
