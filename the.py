@@ -78,7 +78,7 @@ async def about(ctx):
     await ctx.send('--------------------------------')
     await ctx.send('This is a JOE Bot, all hail Joe!')
     await ctx.send('Contributors: JoshuaMV')
-    await ctx.send('test2')
+    await ctx.send('test3')
 
 @bot.command(help="idk", pass_context=True)
 async def furry(ctx):
