@@ -74,7 +74,7 @@ async def takehelp(ctx, member : discord.Member):
 
 @bot.command(help="Displays information about the bot.", )
 async def about(ctx):
-    await ctx.send('Joe Bot Version v6.5')
+    await ctx.send('Joe Bot Version v6')
     await ctx.send('--------------------------------')
     await ctx.send('This is a JOE Bot, all hail Joe!')
     await ctx.send('Contributors: JoshuaMV')
@@ -120,12 +120,12 @@ async def say(ctx, *args):
 async def birb(ctx):
     await ctx.send('https://files.catbox.moe/s1g67r.png')
 
-@bot.command(help='Update the bot via Git..')
+@bot.command(help='Update the bot via GIT.')
 async def update(ctx):
 	os.system("rm -rf /root/test/")
 	os.system("mkdir /root/test/")
 	Repo.clone_from("https://www.github.com/Evanzap/joebot.git", "/root/test/")
 	os.system("mv /root/test/the.py /root/the.py")
-	await arestart()
+	arestart()
 
 bot.run(str(token))
