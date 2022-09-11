@@ -1,10 +1,27 @@
 import discord
 import random
 from discord.ext import commands
+import os
+import sys
+import psutil
+import logging
+import git
+from git import Repo
 
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='.', intents=intents)
+token_file = open('token.txt', 'r')
+token = token_file.read()
+
+async def arestart():
+    import sys
+    print("argv was",sys.argv)
+    print("sys.executable was", sys.executable)
+    print("restart now")
+
+    import os
+    os.execv(sys.executable, ['python'] + sys.argv)
 
 @bot.command(help='Displays Rule 11')
 async def r11(ctx):
@@ -57,7 +74,7 @@ async def takehelp(ctx, member : discord.Member):
 
 @bot.command(help="Displays information about the bot.", )
 async def about(ctx):
-    await ctx.send('Joe Bot Version v5.6')
+    await ctx.send('Joe Bot Version v6')
     await ctx.send('--------------------------------')
     await ctx.send('This is a JOE Bot, all hail Joe!')
     await ctx.send('Contributors: JoshuaMV')
@@ -103,4 +120,10 @@ async def say(ctx, *args):
 async def birb(ctx):
     await ctx.send('https://files.catbox.moe/s1g67r.png')
 
-bot.run('token')
+@bot.command(help='Testing command for restarting the bot.')
+async def update(ctx):
+	Repo.clone_from("https://www.github.com/Evanzap/joebot.git", "/root/test/")
+	await os.system("mv root/test/the.py root/the.py")
+	await arestart()
+
+bot.run(str(token))
