@@ -5,6 +5,7 @@ import os
 import sys
 import psutil
 import logging
+import time
 import git
 from git import Repo
 
@@ -127,6 +128,7 @@ async def update(ctx):
 	os.system("mkdir /root/test/")
 	Repo.clone_from("https://www.github.com/Evanzap/joebot.git", "/root/test/")
 	os.system("mv /root/test/the.py /root/the.py")
+	time.sleep(1)
 	arestart()
 
 bot.run(str(token))
