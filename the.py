@@ -69,6 +69,9 @@ async def superban(ctx, member : discord.Member):
 
 @bot.command(help="Takes away help from a member.")
 async def takehelp(ctx, member : discord.Member):
+    if member.name == 'Joe Bot':
+        await ctx.send('no')
+    else:
         thing = [member.mention, ' can no longer access the help channels.']
         x = ''.join(thing)
         await ctx.send(x)
