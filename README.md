@@ -1,4 +1,4 @@
-# joebot
+# 🍔 joebot
 fun little discord bot i made
 
 # Documentation
