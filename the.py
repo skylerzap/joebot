@@ -77,11 +77,10 @@ async def takehelp(ctx, member : discord.Member):
 
 @bot.command(help="Displays information about the bot.", )
 async def about(ctx):
-    await ctx.send('Joe Bot Version v6.2')
+    await ctx.send('Joe Bot Version v6.2.1 (Funny Number Edition)')
     await ctx.send('--------------------------------')
     await ctx.send('This is a JOE Bot, all hail Joe!')
     await ctx.send('Contributors: JoshuaMV')
-    await ctx.send('test3')
 
 @bot.command(help="idk", pass_context=True)
 async def furry(ctx):
