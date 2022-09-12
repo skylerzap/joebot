@@ -27,7 +27,7 @@ def restartApp():
     python = sys.executable
     os.execl(python, python, *sys.argv)
 
-@bot.command(help='Displays Rule 11')
+@bot.command(help='Displays Rule 11', category='test')
 async def r11(ctx):
     await ctx.send('Please refrain from asking for or giving assistance with installing, using, or obtaining pirated software.')
     print("Somebody called rule 11.")
@@ -86,7 +86,7 @@ async def takehelp(ctx, member : discord.Member):
 
 @bot.command(help="Displays information about the bot.", )
 async def about(ctx):
-    await ctx.send('Joe Bot Version v6.4.1')
+    await ctx.send('Joe Bot Version v6.4.1.1')
     await ctx.send('--------------------------------')
     await ctx.send('This is a JOE Bot, all hail Joe!')
     await ctx.send('Contributors: JoshuaMV')
