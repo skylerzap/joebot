@@ -86,7 +86,7 @@ async def takehelp(ctx, member : discord.Member):
 
 @bot.command(help="Displays information about the bot.", )
 async def about(ctx):
-    await ctx.send('Joe Bot Version v6.3.5')
+    await ctx.send('Joe Bot Version v6.3.9')
     await ctx.send('--------------------------------')
     await ctx.send('This is a JOE Bot, all hail Joe!')
     await ctx.send('Contributors: JoshuaMV')
@@ -122,6 +122,11 @@ async def wget(ctx, *args):
     os.system(''.join(wgettable))
     print("User downloaded",arguments,"to /FURRY.")
     await ctx.send("Finished downloading to the furry folder.")
+
+@bot.command(help="Lists the contents of the furry folder.")
+async def ls(ctx):
+    print("User is requesting the contents of the furry folder.")
+    await ctx.send(''.join(["Furry Directory Listing: ( ",' )( '.join(os.listdir('/root/FURRY'))," )"]))
 	
 @bot.command(help="Sends a random LightShot image. (Use at your own risk!)")
 async def lightshot(ctx):
