@@ -89,15 +89,15 @@ async def furry(ctx):
 
 @bot.command(help="Sends a random image from Evan's furry folder.")
 async def furryfolder(ctx):
-    furryfile = random.choice(os.listdir("/FURRY"))
-    furrytable = ["/FURRY/",furryfile]
+    furryfile = random.choice(os.listdir("/root/FURRY"))
+    furrytable = ["/root/FURRY/",furryfile]
     furrysend = ''.join(furrytable)
     await ctx.send(file=discord.File(furrysend))
 	
 @bot.command(help="Sends a chosen image from the furry folder.")
 async def pickfurry(ctx, *args):
     furryfile = ''.join(args)
-    furrytable = ["/FURRY/",furryfile]
+    furrytable = ["/root/FURRY/",furryfile]
     furrysend = ''.join(furrytable)
     await ctx.send(file=discord.File(furrysend))
     print("I sent", furrysend, "from the /FURRY directory.")
@@ -107,7 +107,7 @@ async def wget(ctx, *args):
     arguments=' '.join(args)
     print("User is downloading",arguments,"to /FURRY.")
     await ctx.send("Downloading to the furry folder.")
-    wgettable = ["wget --directory-prefix /FURRY"," ",arguments]
+    wgettable = ["wget --directory-prefix /root/FURRY"," ",arguments]
     os.system(''.join(wgettable))
     print("User downloaded",arguments,"to /FURRY.")
     await ctx.send("Finished downloading to the furry folder.")
