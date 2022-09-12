@@ -27,14 +27,10 @@ def restartApp():
     python = sys.executable
     os.execl(python, python, *sys.argv)
 
-class rules(commands.Cog, name='Rules'):
-    def __init__(self, bot):
-        self.bot = bot
-
-    @bot.command(help='Displays Rule 11')
-    async def r11(ctx):
-        await ctx.send('Please refrain from asking for or giving assistance with installing, using, or obtaining pirated software.')
-        print("Somebody called rule 11.")
+@bot.command(help='Displays Rule 11')
+async def r11(ctx):
+    await ctx.send('Please refrain from asking for or giving assistance with installing, using, or obtaining pirated software.')
+    print("Somebody called rule 11.")
 
 @bot.command(help='Displays Rule 11')
 async def rule11(ctx):
@@ -51,42 +47,38 @@ async def w11(ctx):
     await ctx.send('pwease wefwain fwom asking fow ow giving assistance with instawwing, using, ow obtaining piwated softwawe')
     print("Somebody cawwed wuwe 11. UwU")
 
-class mod(commands.Cog, name='Moderation'):
-    def __init__(self, bot):
-        self.bot = bot
+@bot.command(help="Bans a member.")
+async def ban(ctx, member : discord.Member):
+    if member.name == 'Joe Bot':
+        await ctx.send('no')
+    else:
+        thing = [':hammer: ', member.mention, ' has been banned.']
+        x = ''.join(thing)
+        await ctx.send(x)
+        print(member.mention,"was banned.")
 
-    @bot.command(help="Bans a member.")
-    async def ban(ctx, member : discord.Member):
-        if member.name == 'Joe Bot':
-            await ctx.send('no')
-        else:
-            thing = [':hammer: ', member.mention, ' has been banned.']
-            x = ''.join(thing)
-            await ctx.send(x)
-            print(member.mention,"was banned.")
+@bot.command(help="Kills a member.")
+async def kill(ctx, member : discord.Member):
+    if member.name == 'Joe Bot':
+        await ctx.send('no')
+    else:
+        thing = [':knife: ', member.mention, ' has been killed.']
+        x = ''.join(thing)
+        await ctx.send(x)
+        print(member.mention,"was killed.")
 
-    @bot.command(help="Kills a member.")
-    async def kill(ctx, member : discord.Member):
-        if member.name == 'Joe Bot':
-            await ctx.send('no')
-        else:
-           thing = [':knife: ', member.mention, ' has been killed.']
-            x = ''.join(thing)
-            await ctx.send(x)
-           print(member.mention,"was killed.")
+@bot.command(help="Super bans a member.")
+async def superban(ctx, member : discord.Member):
+    if member.name == 'Joe Bot':
+        await ctx.send('no')
+    else:
+        thing = [member.mention, ' is now SUPER BANNED. :thumbup: https://nintendohomebrew.com/assets/img/banned.gif']
+        x = ''.join(thing)
+        await ctx.send(x)
+        print(member.mention,"is now SUPER BANNED!")
 
-    @bot.command(help="Super bans a member.")
-    async def superban(ctx, member : discord.Member):
-        if member.name == 'Joe Bot':
-            await ctx.send('no')
-       else:
-           thing = [member.mention, ' is now SUPER BANNED. :thumbup: https://nintendohomebrew.com/assets/img/banned.gif']
-           x = ''.join(thing)
-          await ctx.send(x)
-          print(member.mention,"is now SUPER BANNED!")
-
-    @bot.command(help="Takes away help from a member.")
-    async def takehelp(ctx, member : discord.Member):
+@bot.command(help="Takes away help from a member.")
+async def takehelp(ctx, member : discord.Member):
         thing = [member.mention, ' can no longer access the help channels.']
         x = ''.join(thing)
         await ctx.send(x)
@@ -94,7 +86,7 @@ class mod(commands.Cog, name='Moderation'):
 
 @bot.command(help="Displays information about the bot.", )
 async def about(ctx):
-    await ctx.send('Joe Bot Version v6.4.1.1')
+    await ctx.send('Joe Bot Version v6.4.1')
     await ctx.send('--------------------------------')
     await ctx.send('This is a JOE Bot, all hail Joe!')
     await ctx.send('Contributors: JoshuaMV')
@@ -178,6 +170,4 @@ async def restart(ctx):
 	ctx.send('Restarting...')
 	restartApp()
 
-bot.add_cog(rules(bot))
-bot.add_cog(mod(bot))
 bot.run(str(token))
