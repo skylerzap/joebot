@@ -86,7 +86,7 @@ async def takehelp(ctx, member : discord.Member):
 
 @bot.command(help="Displays information about the bot.", )
 async def about(ctx):
-    await ctx.send('Joe Bot Version v6.4.1')
+    await ctx.send('Joe Bot Version v6.4.2')
     await ctx.send('--------------------------------')
     await ctx.send('This is a JOE Bot, all hail Joe!')
     await ctx.send('Contributors: JoshuaMV')
@@ -116,6 +116,14 @@ async def pickfurry(ctx, *args):
 @bot.command(help="Downloads an image to the furry folder.")
 async def wget(ctx, *args):
     arguments=' '.join(args)
+    if "$" in arguments:
+        print("! User tried to download file from URL with illegal characters.")
+        await ctx.send("This URL contains characters you cannot use!")
+        return
+    if ".." in arguments:
+        print("! User tried to download file from URL with illegal characters.")
+        await ctx.send("This URL contains characters you cannot use!")
+        return
     print("User is downloading",arguments,"to /FURRY.")
     await ctx.send("Downloading to the furry folder.")
     wgettable = ["wget --directory-prefix /FURRY"," ",arguments]
@@ -132,6 +140,22 @@ async def ls(ctx):
 async def rename(ctx, arg1, arg2):
     source = ''.join(arg1)
     destination = ''.join(arg2)
+    if "$" in source:
+        print("! User tried to rename file with illegal characters.")
+        await ctx.send("This original filename contains characters you cannot use!")
+        return
+    if "$" in destination:
+        print("! User tried to rename file to name with illegal characters.")
+        await ctx.send("This destination filename contains characters you cannot use!")
+        return
+    if ".." in destination:
+        print("! User tried to rename file to name with illegal characters.")
+        await ctx.send("This destination filename contains characters you cannot use!")
+        return
+    if ".." in source:
+        print("! User tried to rename file with illegal characters.")
+        await ctx.send("This original filename contains characters you cannot use!")
+        return
     print("User is renaming",source,"to", destination,".")
     await ctx.send("Renaming file.")
     renametable = ["mv ","/FURRY/",source," ","/FURRY/",destination]
