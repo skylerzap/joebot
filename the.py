@@ -103,7 +103,7 @@ async def givehelp(ctx, member : discord.Member):
 
 @bot.command(help="Displays information about the bot.", )
 async def about(ctx):
-    embed=discord.Embed(title="Joe Bot Testing",url="https://github.com/joshuavanderbilt/joebot-testing",description="This is a JOE bot, all hail Joe! Contributers: JoshuaMV.",color=0xFF5733)
+    embed=discord.Embed(title="Joe Bot v6.4.5",url="https://github.com/Evanzap/joebot",description="This is a JOE bot, all hail Joe! Contributers: JoshuaMV.",color=0xFF5733)
     embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/1015749450544730204/5cd7886d908ad187abec6d3defc3c5bb.webp")
     await ctx.send(embed=embed)
     print("User called the about message.")
