@@ -85,7 +85,7 @@ async def takehelp(ctx, member : discord.Member):
         print("Someone took help from",member.mention,".")
 
 @bot.command(help="Gives help to a member.")
-async def takehelp(ctx, member : discord.Member):
+async def givehelp(ctx, member : discord.Member):
         thing = [member.mention, ' can now access the help channels.']
         x = ''.join(thing)
         await ctx.send(x)
