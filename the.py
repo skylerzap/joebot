@@ -103,11 +103,10 @@ async def givehelp(ctx, member : discord.Member):
 
 @bot.command(help="Displays information about the bot.", )
 async def about(ctx):
-    await ctx.send('Joe Bot Version v6.4.3')
-    await ctx.send('--------------------------------')
-    await ctx.send('This is a JOE Bot, all hail Joe!')
-    await ctx.send('Contributors: JoshuaMV')
-    print("Someone called the about message.")
+    embed=discord.Embed(title="Joe Bot Testing",url="https://github.com/joshuavanderbilt/joebot-testing",description="This is a JOE bot, all hail Joe! Contributers: JoshuaMV.",color=0xFF5733)
+    embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/1015749450544730204/5cd7886d908ad187abec6d3defc3c5bb.webp")
+    await ctx.send(embed=embed)
+    print("User called the about message.")
 
 @bot.command(help="idk", pass_context=True)
 async def furry(ctx):
