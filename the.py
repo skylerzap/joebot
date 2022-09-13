@@ -57,6 +57,16 @@ async def ban(ctx, member : discord.Member):
         await ctx.send(x)
         print(member.mention,"was banned.")
 
+@bot.command(help="Unbans a member.")
+async def unban(ctx, member : discord.Member):
+    if member.name == 'Joe Bot':
+        await ctx.send('yes')
+    else:
+        thing = [':hammer: ', member.mention, ' has been unbanned.']
+        x = ''.join(thing)
+        await ctx.send(x)
+        print(member.mention,"was unbanned.")
+
 @bot.command(help="Kills a member.")
 async def kill(ctx, member : discord.Member):
     if member.name == 'Joe Bot':
@@ -93,7 +103,7 @@ async def givehelp(ctx, member : discord.Member):
 
 @bot.command(help="Displays information about the bot.", )
 async def about(ctx):
-    await ctx.send('Joe Bot Version v6.4.2')
+    await ctx.send('Joe Bot Version v6.4.3')
     await ctx.send('--------------------------------')
     await ctx.send('This is a JOE Bot, all hail Joe!')
     await ctx.send('Contributors: JoshuaMV')
