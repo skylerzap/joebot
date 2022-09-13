@@ -84,6 +84,13 @@ async def takehelp(ctx, member : discord.Member):
         await ctx.send(x)
         print("Someone took help from",member.mention,".")
 
+@bot.command(help="Gives help to a member.")
+async def takehelp(ctx, member : discord.Member):
+        thing = [member.mention, ' can now access the help channels.']
+        x = ''.join(thing)
+        await ctx.send(x)
+        print("Someone gave help to",member.mention,".")
+
 @bot.command(help="Displays information about the bot.", )
 async def about(ctx):
     await ctx.send('Joe Bot Version v6.4.2')
