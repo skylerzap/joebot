@@ -199,11 +199,17 @@ async def birb(ctx):
 
 @bot.command(help='Update the bot via GIT.')
 async def update(ctx):
-	os.system("rm -rf /root/test/")
-	os.system("mkdir /root/test/")
-	Repo.clone_from("https://www.github.com/Evanzap/joebot.git", "/root/test/")
-	os.system("mv /root/test/the.py /root/the.py")
-	await ctx.send('Updating software, please type .restart after a few seconds.')
+    print("User is going to update bot.")
+    await ctx.send('Updating software...')
+    os.system("rm -rf ./update")
+    os.system("mkdir ./update")
+    Repo.clone_from("https://www.github.com/joshuavanderbilt/joebot-testing.git", "./update")
+    os.system("mv ./update/the.py ./the.py")
+    await ctx.send('Update complete.')
+    print("...which succeeded!")
+    print("Let's restart the bot now.")
+    await ctx.send('Restarting...')
+    restartApp()
 	
 @bot.command(help='Restart the bot after updating')
 async def restart(ctx):
