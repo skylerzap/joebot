@@ -203,7 +203,7 @@ async def update(ctx):
     await ctx.send('Updating software...')
     os.system("rm -rf ./update")
     os.system("mkdir ./update")
-    Repo.clone_from("https://www.github.com/joshuavanderbilt/joebot-testing.git", "./update")
+    Repo.clone_from("https://www.github.com/Evanzap/joebot.git", "./update")
     os.system("mv ./update/the.py ./the.py")
     await ctx.send('Update complete.')
     print("...which succeeded!")
