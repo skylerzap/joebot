@@ -47,6 +47,16 @@ async def w11(ctx):
     await ctx.send('pwease wefwain fwom asking fow ow giving assistance with instawwing, using, ow obtaining piwated softwawe')
     print("Somebody cawwed wuwe 11. UwU")
 
+@bot.command(help="bans a membew.")
+async def fban(ctx, member : discord.Member):
+    if member.name == 'Joe Bot':
+        await ctx.send('no')
+    else:
+        thing = [':hammer: ', member.mention, ' has bewn banned. UwU']
+        x = ''.join(thing)
+        await ctx.send(x)
+        print(member.mention,"was banned.")
+	
 @bot.command(help="Bans a member.")
 async def ban(ctx, member : discord.Member):
     if member.name == 'Joe Bot':
@@ -83,6 +93,16 @@ async def superban(ctx, member : discord.Member):
         await ctx.send('no')
     else:
         thing = [member.mention, ' is now SUPER BANNED. :thumbup: https://nintendohomebrew.com/assets/img/banned.gif']
+        x = ''.join(thing)
+        await ctx.send(x)
+        print(member.mention,"is now SUPER BANNED!")
+	
+@bot.command(help="supew bans a membew.")
+async def suwuban(ctx, member : discord.Member):
+    if member.name == 'Joe Bot':
+        await ctx.send('no UwU')
+    else:
+        thing = [member.mention, ' is iws now SUPEW BANNED. OwO :thumbup: https://nintendohomebrew.com/assets/img/banned.gif']
         x = ''.join(thing)
         await ctx.send(x)
         print(member.mention,"is now SUPER BANNED!")
