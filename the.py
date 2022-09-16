@@ -123,7 +123,7 @@ async def givehelp(ctx, member : discord.Member):
 
 @bot.command(help="Displays information about the bot.", )
 async def about(ctx):
-    embed=discord.Embed(title="Joe Bot v6.4.5",url="https://github.com/Evanzap/joebot",description="This is a JOE bot, all hail Joe! Contributers: JoshuaMV.",color=0xFF5733)
+    embed=discord.Embed(title="Joe Bot v6.5",url="https://github.com/Evanzap/joebot",description="This is a JOE bot, all hail Joe! Contributers: JoshuaMV.",color=0xFF5733)
     embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/1015749450544730204/5cd7886d908ad187abec6d3defc3c5bb.webp")
     await ctx.send(embed=embed)
     print("User called the about message.")
@@ -150,6 +150,7 @@ async def pickfurry(ctx, *args):
     print("I sent", furrysend, "from the /FURRY directory.")
 
 @bot.command(help="Downloads an image to the furry folder.")
+@commands.has_role('Joe Bot Sysadmin')
 async def wget(ctx, *args):
     arguments=' '.join(args)
     if "$" in arguments:
@@ -173,6 +174,7 @@ async def ls(ctx):
     await ctx.send(''.join(["Furry Directory Listing: ( ",' )( '.join(os.listdir('/FURRY'))," )"]))
 
 @bot.command(help="Renames a file in the furry folder.")
+@commands.has_role('Joe Bot Sysadmin')
 async def rename(ctx, arg1, arg2):
     source = ''.join(arg1)
     destination = ''.join(arg2)
@@ -199,12 +201,26 @@ async def rename(ctx, arg1, arg2):
     await ctx.send("File renamed.")
 
 @bot.command(help="Sends a random LightShot image. (Use at your own risk!)")
-async def lightshot(ctx):
-    lslink = ''.join(random.choices(string.ascii_lowercase + string.digits, k=6))
-    lstable = ["https://prnt.sc/", lslink]
-    lssend = ''.join(lstable)
-    await ctx.send(lssend)
-    print("I sent a lightshot link, that being",lssend,".")
+@commands.has_role('Joe Bot Sysadmin')
+async def lightshot(ctx, *args):
+    arguments = ''.join(args)
+    if arguments == '':
+        lslink = ''.join(random.choices(string.ascii_lowercase + string.digits, k=6))
+        lstable = ["https://prnt.sc/", lslink]
+        lssend = ''.join(lstable)
+        await ctx.send(lssend)
+        print("User generated this link from LightShot:", lssend)
+        return
+    number = int(arguments)
+    amount = int(arguments)
+    for number in range(0,number):
+        lslink = ''.join(random.choices(string.ascii_lowercase + string.digits, k=6))
+        lstable = ["https://prnt.sc/", lslink]
+        lssend = ''.join(lstable)
+        if amount > 5:
+            time.sleep(1)
+        await ctx.send(lssend)
+        print("User generated this link from LightShot:", lssend,", which is", number+1, "out of", amount)
 
 @bot.command(help="Make the Joe Bot say what you want it to!")
 async def say(ctx, *args):
@@ -218,6 +234,7 @@ async def birb(ctx):
     print("I sent the funny birb image.")
 
 @bot.command(help='Update the bot via GIT.')
+@commands.has_role('Joe Bot Sysadmin')
 async def update(ctx):
     print("User is going to update bot.")
     await ctx.send('Updating software...')
@@ -231,7 +248,8 @@ async def update(ctx):
     await ctx.send('Restarting...')
     restartApp()
 	
-@bot.command(help='Restart the bot after updating')
+@bot.command(help='Restart the bot.')
+@commands.has_role('Joe Bot Sysadmin')
 async def restart(ctx):
 	ctx.send('Restarting...')
 	restartApp()
