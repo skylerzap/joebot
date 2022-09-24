@@ -133,10 +133,6 @@ async def furry(ctx):
     area = ctx.message.channel
     await ctx.send(file=discord.File(r'/Users/Evanz/real.png'))
 
-@bot.command(help="Makes the meme folder.")
-async def mkdirmeme(ctx):
-    os.system("mkdir ./MEME")
-
 @bot.command(help="Sends a random image from the furry folder.")
 async def furryfolder(ctx):
     furryfile = random.choice(os.listdir("./FURRY"))
