@@ -147,7 +147,7 @@ async def memefolder(ctx):
     memetable = ["./MEME/",memefile]
     memesend = ''.join(memetable)
     await ctx.send(file=discord.File(memesend))
-    print("I send", memesend, "from the ./MEME directory.")
+    print("I sent", memesend, "from the ./MEME directory.")
     
 
 @bot.command(help="Sends a chosen image from the furry folder.")
@@ -164,7 +164,7 @@ async def pickmeme(ctx, *args):
     memetable = ["./MEME/",memefile]
     memesend = ''.join(memetable)
     await ctx.send(file=discord.File(memesend))
-    print("I send", memesend, "from the ./MEME directory.")
+    print("I sent", memesend, "from the ./MEME directory.")
 
 @bot.command(help="Downloads an image to the furry folder.")
 @commands.has_role('Joe Bot Sysadmin')
