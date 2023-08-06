@@ -61,7 +61,7 @@ async def fban(ctx, member : discord.Member):
 async def ban(ctx, member : discord.Member):
     if member.name == 'Joe Bot':
         await ctx.send('SYSTEM MALFUNCTION (error code 0xFFFFFF)')
-	thing = [':hammer: ', ctx.author.mention, ' has been banned.']
+        thing = [':hammer: ', ctx.author.mention, ' has been banned.']
         x = ''.join(thing)
         await ctx.send(x)
         print(member.mention,"was banned.")
