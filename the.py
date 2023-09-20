@@ -80,6 +80,18 @@ async def unban(ctx, member : discord.Member):
         x = ''.join(thing)
         await ctx.send(x)
         print(member.mention,"was unbanned.")
+        
+@bot.command(help="fucking nukes someone.")
+async def fuckingnuke(ctx, member : discord.Member):
+    if ctx.author.name == 'corewalker1':
+        await ctx.send('User @corewalker1 is not allowed to use nukes.')
+    else:
+        thing = [':bomb: ', member.mention, ' has been fucking nuked.']
+        x = ''.join(thing)
+        await ctx.send(x)
+        print(member.mention,"was fucking nuked.")
+    
+
 
 @bot.command(help="Kills a member.")
 async def kill(ctx, member : discord.Member):
