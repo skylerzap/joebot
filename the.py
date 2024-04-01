@@ -139,7 +139,7 @@ async def givehelp(ctx, member : discord.Member):
 
 @bot.command(help="Displays information about the bot.", )
 async def about(ctx):
-    embed=discord.Embed(title="Joe Bot v7",url="https://github.com/Evanzap/joebot",description="This is a JOE bot, all hail Joe! Contributers: JoshuaMV.",color=0xFF5733)
+    embed=discord.Embed(title="Joe Bot v7",url="https://github.com/skylerzap/joebot",description="This is a JOE bot, all hail Joe! Contributers: JoshuaMV.",color=0xFF5733)
     embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/1015749450544730204/5cd7886d908ad187abec6d3defc3c5bb.webp")
     await ctx.send(embed=embed)
     print("User called the about message.")
@@ -147,7 +147,7 @@ async def about(ctx):
 @bot.command(help="idk", pass_context=True)
 async def furry(ctx):
     area = ctx.message.channel
-    await ctx.send(file=discord.File(r'/Users/Evanz/real.png'))
+    await ctx.send(file=discord.File(r'real.png'))
 
 @bot.command(help="Sends a random image from the furry folder.")
 async def furryfolder(ctx):
@@ -328,7 +328,7 @@ async def update(ctx):
     await ctx.send('Updating software...')
     os.system("rm -rf ./update")
     os.system("mkdir ./update")
-    Repo.clone_from("https://www.github.com/Evanzap/joebot.git", "./update")
+    Repo.clone_from("https://www.github.com/skylerzap/joebot.git", "./update")
     os.system("mv ./update/the.py ./the.py")
     await ctx.send('Update complete.')
     print("...which succeeded!")
