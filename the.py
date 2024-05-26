@@ -84,7 +84,7 @@ async def unban(ctx, member : discord.Member):
 @bot.command(help="fucking nukes someone.")
 async def fuckingnuke(ctx, member : discord.Member):
     if ctx.author.id == 1081745050297450516: #the one and only windscc
-        await ctx.send('User ' ctx.author.mention + ' is not allowed to use nukes.')
+        await ctx.send('User ' + ctx.author.mention + ' is not allowed to use nukes.')
     else:
         thing = [':bomb: ', member.mention, ' has been fucking nuked.']
         x = ''.join(thing)
